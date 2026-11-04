@@ -54,9 +54,23 @@ void del_2 () {
       << setw(10) << float (i * 0.8) 
       << endl;
   }
-}
+} 
+
+void del_3()
+ {  
+  string tenCharStr{""} ;
+  cout << "Del 3: Teckenhantering" << endl; 
+  //for(int i{0}; i < 10;++i)
+  //{   
+  //}  
+  getline(cin, last_name);
+  cout << tenCharStr << endl; 
+  
+ }
 
 int main () {
-  del_1();
-  del_2();
-}
+  //del_1();
+  //del_2(); 
+  del_3();
+} 
+
