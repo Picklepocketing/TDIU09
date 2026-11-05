@@ -58,14 +58,47 @@ void del_2 () {
 
 void del_3()
  {  
-  string tenCharStr{""} ;
+  string input{};
+  string inputShortened {};
+  int alphaCount {};
+  int numCount {};
+  int spaceCount {};
+  char fillChar {};
+
   cout << "Del 3: Teckenhantering" << endl; 
-  //for(int i{0}; i < 10;++i)
-  //{   
-  //}  
-  getline(cin, last_name);
-  cout << tenCharStr << endl; 
+
+  getline(cin, input);
   
+  for (int i = 0; i < 10; i++) {
+    char curr = input[i];
+
+    if (isalpha(curr)) alphaCount++;
+
+    if (isdigit(curr)) numCount++;
+
+    if (isspace(curr)) spaceCount++;
+
+    inputShortened.push_back(curr);
+  }
+
+  cout << "Mata in utfullnadstecken: ";
+
+  cin >> fillChar;
+
+  cout << left << setw(21) << setfill(fillChar);
+
+  cout << "Alfabetiska tecken:"
+    << alphaCount << endl; 
+
+  cout << left << setw(21) << setfill(fillChar);
+
+  cout << "Siffertecken:"
+    << numCount << endl;
+
+  cout << left << setw(21) << setfill(fillChar);
+
+  cout << "Vita tecken:"
+    << spaceCount << endl;
  }
 
 int main () {
