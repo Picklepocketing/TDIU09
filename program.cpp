@@ -1,3 +1,5 @@
+// karno058: Samarbetat med hugko281, Hugo Kollegger, samma program
+
 #include <iostream>
 #include <iomanip>
 #include <limits>
@@ -107,12 +109,49 @@ void del_3()
  } 
 
  void del_4() { 
+    cout << "Del 4: Ordhantering" << endl;  
+      string word{} ; 
+      int wordCount{0} ; 
+      string shortestWord{""} ; 
+      string longestWord{""} ; 
+      float charSum{0};
+ 
   
+  while(cin >> word) {  
+
+    
+      if(word.size() == 0)
+      { 
+       continue; 
+      } 
+      else
+      {  
+        ++wordCount; 
+        charSum += word.size();
+        if(word.size() >= longestWord.size()){ 
+          longestWord = word ;
+        }  
+        if(word.size() <= shortestWord.size() || shortestWord.size() == 0){ 
+          shortestWord = word ;
+        }  
+      
+
+
+    }
+      //word += cha;   
+      
+  } 
+  cout << "Texten innehöll " << wordCount << " ord." << endl ;
+  cout << "Kortaste ordet: " << shortestWord << " (" << shortestWord.size() <<" tecken)." << endl ; 
+  cout << "Längsta ordet: " << longestWord << " (" << longestWord.size() <<" tecken)." << endl ; 
+  cout << "Medelordlängd: " << fixed << setprecision(1) <<charSum / wordCount << " tecken." << endl;
+
  }
 
 int main () {
   //del_1();
   //del_2(); 
-  del_3();
+  //del_3(); 
+  del_4();
 } 
 
