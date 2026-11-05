@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+#include <limits>
 using namespace std;
 void del_1 () {
   cout << "Del 1: In- och utmatning" << endl;
@@ -67,20 +67,24 @@ void del_3()
 
   cout << "Del 3: Teckenhantering" << endl; 
 
-  char bitchassChar[10];
-  cin.get(bitchassChar, 10);
+  //cin.get(bitchassChar, 10); 
+  char cha{}; 
+ 
   
-  for (int i = 0; i < 10; i++) {
-    char curr = input[i];
+  for (int i = 0; i < 10 && cin.get(cha); i++) {
+    //char curr = input[i]; 
 
-    if (isalpha(curr)) alphaCount++;
 
-    if (isdigit(curr)) numCount++;
+    if (isalpha(cha)) alphaCount++;
 
-    if (isspace(curr)) spaceCount++;
+    if (isdigit(cha)) numCount++;
 
-    inputShortened.push_back(curr);
-  }
+    if (isspace(cha)) spaceCount++;
+
+    inputShortened.push_back(cha);
+  } 
+ // cin.clear(); 
+ cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
   cout << "Mata in utfullnadstecken: ";
 
@@ -100,6 +104,10 @@ void del_3()
 
   cout << "Vita tecken:"
     << spaceCount << endl;
+ } 
+
+ void del_4() { 
+  
  }
 
 int main () {
