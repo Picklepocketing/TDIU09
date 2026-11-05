@@ -4,8 +4,11 @@
 #include <iomanip>
 #include <limits>
 using namespace std;
-void del_1 () {
-  cout << "Del 1: In- och utmatning" << endl;
+
+
+int main () { 
+
+   cout << "Del 1: In- och utmatning" << endl;
 
   int age {};
   float shoesize {};
@@ -14,35 +17,54 @@ void del_1 () {
 
   cout << "Mata in din ålder och skostorlek: ";
   cin >> age >> shoesize;
-  cout << endl;
+  
 
   cout << "Mata in första bokstaven i ditt namn: ";
   cin >> first_letter;
-  cout << endl;
+
 
   cout << "Mata in ditt efternamn: ";
   cin >> ws;
   getline(cin, last_name);
-  cout << endl;
+
 
   cout << "Hej " << first_letter << ". " << last_name << '!' << endl;
-  cout << "Din ålder: " << setw(5) << age << endl;
-  cout << "Skostorlek: " << shoesize << endl << endl;
-}
-
-void del_2 () {
+  cout << "Din ålder:" << setw(10) << age << endl;
+  cout << "Din skostorlek: " << shoesize << endl << endl; 
+/////////////////////////////////////////////////////////////////////7
   cout << "Del 2: Temperaturtabell" << endl;
   int start {};
   int end {};
+ cout << "Ange startvärde: " << endl;
+  cin >> start ;
+  while ( start < -273)
+  { 
+    cout << "Felaktigt startvärde!" << endl ; 
+    cout << "Ange startvärde: " << endl ;
+    cin >> start ; 
+    cin.clear();
+     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
-  cout << "Ange startvärde: ";
-  cin >> start;
+  }  
 
-  while (true) {
-    cout << "Ange slutvärde: ";
-    cin >> end;
-    if (end > start) break;
-    cout << "Felaktigt slutvärde!" << endl;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');  
+    cout << "Ange slutvärde: "; 
+    cin >> end; 
+  while (end <= start) { 
+    if(cin.fail()) 
+    { 
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    }
+    cout << "Ange slutvärde: "; 
+        cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    cin >> end; 
+    //if (end > start) break;
+    cout << "Felaktigt slutvärde!" << endl; 
+
+
   }
 
   cout << "Celsius" << setw(9) << "Kelvin" << setw(14) << "Fahrenheit" 
@@ -55,12 +77,10 @@ void del_2 () {
       << setw(14) << fixed << setprecision(2) << float (i * 1.8 + 32) 
       << setw(10) << float (i * 0.8) 
       << endl;
-  }
-} 
-
-void del_3()
- {  
-  string input{};
+  } 
+  cout << endl;
+////////////////////////////////////////////////////////////////////////////// 
+string input{};
   string inputShortened {};
   int alphaCount {};
   int numCount {};
@@ -72,8 +92,9 @@ void del_3()
   //cin.get(bitchassChar, 10); 
   char cha{}; 
  
+  cin.ignore();
   
-  for (int i = 0; i < 10 && cin.get(cha); i++) {
+  for (int i = 0; i < 10 && cin.get(cha); ++i) {
     //char curr = input[i]; 
 
 
@@ -88,7 +109,7 @@ void del_3()
  // cin.clear(); 
  cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
-  cout << "Mata in utfullnadstecken: ";
+  cout << "Mata in utfyllnadstecken: ";
 
   cin >> fillChar;
 
@@ -105,11 +126,10 @@ void del_3()
   cout << left << setw(21) << setfill(fillChar);
 
   cout << "Vita tecken:"
-    << spaceCount << endl;
- } 
-
- void del_4() { 
-    cout << "Del 4: Ordhantering" << endl;  
+    << spaceCount << endl; 
+    cout << endl;
+//////////////////////////////////////////////////////////////////////////////////////// 
+ cout << "Del 4: Ordhantering" << endl;  
       string word{} ; 
       int wordCount{0} ; 
       string shortestWord{""} ; 
@@ -128,10 +148,10 @@ void del_3()
       {  
         ++wordCount; 
         charSum += word.size();
-        if(word.size() >= longestWord.size()){ 
+        if(word.size() > longestWord.size()){ 
           longestWord = word ;
         }  
-        if(word.size() <= shortestWord.size() || shortestWord.size() == 0){ 
+        if(word.size() < shortestWord.size() || shortestWord.size() == 0){ 
           shortestWord = word ;
         }  
       
@@ -142,16 +162,8 @@ void del_3()
       
   } 
   cout << "Texten innehöll " << wordCount << " ord." << endl ;
-  cout << "Kortaste ordet: " << shortestWord << " (" << shortestWord.size() <<" tecken)." << endl ; 
-  cout << "Längsta ordet: " << longestWord << " (" << longestWord.size() <<" tecken)." << endl ; 
+  cout << "Kortaste ordet: " << '"' << shortestWord << '"' << " (" << shortestWord.size() <<" tecken)." << endl ; 
+  cout << "Längsta ordet: " << '"' << longestWord << '"' <<" (" << longestWord.size() <<" tecken)." << endl ; 
   cout << "Medelordlängd: " << fixed << setprecision(1) <<charSum / wordCount << " tecken." << endl;
-
- }
-
-int main () {
-  //del_1();
-  //del_2(); 
-  //del_3(); 
-  del_4();
 } 
 
