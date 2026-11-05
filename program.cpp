@@ -67,7 +67,8 @@ void del_3()
 
   cout << "Del 3: Teckenhantering" << endl; 
 
-  getline(cin, input);
+  char bitchassChar[10];
+  cin.get(bitchassChar, 10);
   
   for (int i = 0; i < 10; i++) {
     char curr = input[i];
