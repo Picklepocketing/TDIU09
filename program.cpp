@@ -3,8 +3,8 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
-using namespace std;
 
+using namespace std;
 
 int main () { 
 
@@ -19,11 +19,9 @@ int main () {
   cin >> age >> shoesize; 
   cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
   
-
   cout << "Mata in första bokstaven i ditt namn: ";
   cin >> first_letter;
   cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-
 
   cout << "Mata in ditt efternamn: ";
   getline(cin, last_name);
@@ -49,20 +47,21 @@ int main () {
       if(start < -273) 
       {
     cout << "Felaktigt startvärde!" << endl ;  
-      } 
-      
+      }
+
     }  
   while( start < -273);
 
-  do { 
+  do 
+  { 
 
-  cout << "Ange slutvärde: ";  
-  cin >> end; 
-  cin.ignore(numeric_limits<streamsize>::max(),'\n');
-  if(end < start) 
-  {
-  cout << "Felaktigt slutvärde!" << endl;  
-  }
+    cout << "Ange slutvärde: ";  
+    cin >> end; 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    if(end < start) 
+    {
+      cout << "Felaktigt slutvärde!" << endl;  
+    }
 
   }
 
@@ -73,12 +72,13 @@ while( end < start);
     << setw(10) << "Reaumur" << endl
     << "----------------------------------------" << endl;
 
-  for (int i = start; i <= end; i++) {
+  for (int i{start}  ; i <= end; i++) {
     cout << setw(7) << i 
       << setw(9) << float(i + 273.15) 
       << setw(14)<< float (i * 1.8 + 32) 
       << setw(10) << float (i * 0.8) 
       << endl;
+
   } 
   cout << endl; 
 
@@ -93,20 +93,19 @@ char fillChar {};
 char cha{}; 
 cout << "Del 3: Teckenhantering" << endl; 
   
- 
-for (int i = 0; i < 10 && cin.get(cha); ++i) {
+ for (int i = 0; i < 10 && cin.get(cha); ++i) {
 
   if (isalpha(cha))  
   {
-  alphaCount++;
+    alphaCount++;
   }
   if (isdigit(cha))
   { 
-  numCount++;
+    numCount++;
   }
   if (isspace(cha))
   {
-  spaceCount++;
+    spaceCount++;
   } 
 
   inputShortened.push_back(cha);
@@ -120,29 +119,29 @@ for (int i = 0; i < 10 && cin.get(cha); ++i) {
   cin.ignore(numeric_limits<streamsize>::max(),'\n'); 
 
 cout << setfill(fillChar);
+
 cout << left  << setw(20) << "Alfabetiska tecken:" << right << setw(2)  << alphaCount << endl;
 
 cout << left  << setw(20) << "Siffertecken:" << right << setw(2)  << numCount << endl;
 
 cout << left  << setw(20) << "Vita tecken:" << right << setw(2)  << spaceCount << endl;
+
 cout << endl;
 
 ////////////////////////////////////////////////////////////////////////////////////////  
 
- cout << "Del 4: Ordhantering" << endl;  
+ cout << "Del 4: Ordhantering" << endl;
+   
       string word{} ; 
       int wordCount{0} ; 
       string shortestWord{""} ; 
       string longestWord{""} ; 
       float charSum{0};
  
-  
   while(cin >> word) {  
-
-    
       if(word.size() == 0)
       { 
-       continue; 
+        continue; 
       } 
       else
       {  
@@ -154,9 +153,6 @@ cout << endl;
         if(word.size() < shortestWord.size() || shortestWord.size() == 0){ 
           shortestWord = word ;
         }  
-      
-
-
     } 
   }  
 
@@ -166,10 +162,10 @@ cout << endl;
   }
   else
   { 
-  cout << "Texten innehöll " << wordCount << " ord." << endl ; 
-  cout << "Kortaste ordet: " << '"' << shortestWord << '"' << " (" << shortestWord.size() <<" tecken)." << endl ; 
-  cout << "Längsta ordet: " << '"' << longestWord << '"' <<" (" << longestWord.size() <<" tecken)." << endl ; 
-  cout << "Medelordlängd: " << fixed << setprecision(1) <<charSum / wordCount << " tecken." << endl; 
+    cout << "Texten innehöll " << wordCount << " ord." << endl ; 
+    cout << "Kortaste ordet: " << '"' << shortestWord << '"' << " (" << shortestWord.size() <<" tecken)." << endl ; 
+    cout << "Längsta ordet: " << '"' << longestWord << '"' <<" (" << longestWord.size() <<" tecken)." << endl ; 
+    cout << "Medelordlängd: " << fixed << setprecision(1) <<charSum / wordCount << " tecken." << endl; 
   } 
 
 } 
