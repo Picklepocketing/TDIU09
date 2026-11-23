@@ -2,8 +2,10 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
+
 int main () {
 
   // --- Del 1 ---
@@ -14,6 +16,20 @@ int main () {
   float shoesize {};
   char first_letter {};
   string last_name {};
+  int start {};
+  int end {};
+  bool invalid_temp {};
+  string input {};
+  int alphaCount {};
+  int numCount {};
+  int spaceCount {};
+  char fillChar {};
+  char cha {}; 
+  string word {};
+  int wordCount {};
+  string shortestWord {};
+  string longestWord {};
+  float charSum {};
 
   cout << "Mata in din ålder och skostorlek: ";
   cin >> age >> shoesize;
@@ -33,10 +49,6 @@ int main () {
   // --- Del 2 ---
 
   cout << "Del 2: Temperaturtabell" << endl;
-  int start {};
-  int end {};
-
-  bool invalid_temp {};
   do 
   {
     cout << "Ange startvärde: ";
@@ -74,9 +86,9 @@ int main () {
 
   for (int i {start}; i <= end; i++) {
     cout << setw(7) << i 
-      << setw(9) << static_cast<double>(i + 273.15) 
-      << setw(14)<< static_cast<double>(i * 1.8 + 32) 
-      << setw(10) << static_cast<double>(i * 0.8) 
+      << setw(9) << static_cast<double>(i) + 273.15 
+      << setw(14)<< static_cast<double>(i) * 1.8 + 32 
+      << setw(10) << static_cast<double>(i) * 0.8
       << endl;
   } 
   cout << endl;
@@ -84,14 +96,6 @@ int main () {
   // --- Del 3 ---
 
   cout << "Del 3: Teckenhantering" << endl;
-
-  string input {};
-  string inputShortened {};
-  int alphaCount {};
-  int numCount {};
-  int spaceCount {};
-  char fillChar {};
-  char cha {}; 
 
   for (int i {}; i < 10 && cin.get(cha); ++i) {
     if (isalpha(cha))
@@ -106,43 +110,27 @@ int main () {
     {
       spaceCount++;
     } 
-
-    inputShortened.push_back(cha);
   } 
 
   cin.ignore(1000, '\n');
 
   cout << "Mata in utfyllnadstecken: ";
-
   cin.get(fillChar);
   cin.ignore(1000, '\n');
 
   cout << setfill(fillChar);
 
   cout << left << setw(20) << "Alfabetiska tecken:" << right << setw(2) << alphaCount << endl;
-
   cout << left << setw(20) << "Siffertecken:" << right << setw(2) << numCount << endl;
-
   cout << left << setw(20) << "Vita tecken:" << right << setw(2) << spaceCount << endl;
-
   cout << endl;
 
   // --- Del 4 ---
 
   cout << "Del 4: Ordhantering" << endl;
 
-  string word {};
-  int wordCount {};
-  string shortestWord {};
-  string longestWord {};
-  float charSum {};
-
   while (cin >> word) {
-    if (word.size() == 0)
-    {
-      continue;
-    } 
-    else
+    if (word.size() != 0)
     {
       ++wordCount;
       charSum += word.size();
@@ -166,4 +154,6 @@ int main () {
     cout << "Längsta ordet: " << '"' << longestWord << '"' << " (" << longestWord.size() << " tecken)." << endl;
     cout << "Medelordlängd: " << fixed << setprecision(1) << charSum / wordCount << " tecken." << endl;
   } 
+
+  return 0;
 } 
