@@ -1,4 +1,4 @@
-// karno058: Samarbetat med hugko281, Hugo Kollegger, samma program
+// hugko281: Samarbetat med karno058, Karl Nord, samma program
 #include <iostream> 
 #include <string>
 #include <cmath>
