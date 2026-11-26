@@ -8,7 +8,8 @@ using namespace std;
 
 int compute_factorial(int n) 
 {
-    if (n == 0) {
+    if (n == 0) 
+    {
         return 1;
     }
     return n * compute_factorial(n - 1);
@@ -22,13 +23,12 @@ void factorial()
     cout << "Fakulteten av " << n << " är " << compute_factorial(n) << endl;
 }
 
-string compute_multyply_string(string text, int multiplier){
+string compute_multyply_string(string const& text, int multiplier){
     string new_text {};
 
     for (int i {0}; i < multiplier; ++i){
         new_text += text;    
     }
-
     return new_text;
 }
 
@@ -36,7 +36,6 @@ void multiply_string()
 {
     string text {};
     int multiplier {};
-
     cout << "Mata in en text och ett heltal: ";
     cin >> text >> multiplier;
     cout << "Den multiplicerade texten är " << compute_multyply_string(text, multiplier) << endl;
@@ -52,33 +51,17 @@ void totally_mean_length(string const& text_1, string const& text_2, int & total
     total_length = text_1.length() + text_2.length();
     mean_length = static_cast<float>(total_length) / 2;
     return;
-}
+} 
 
-void main_menu()
-{  
-    cout << "Välkommen till huvudmenyn!" << endl; 
-    while(true) 
-    {  
-        int choice{0}; 
-        int a {};
+void menu_choices(int const& choice) 
+{ 
+      int a {};
         float b {};
         string text_1{};
         string text_2{};
         int total_length{};
         float mean_length{};
-
-        cout << "1. Beräkna N-fakultet." << endl; 
-        cout << "2. Multiplicera en sträng." << endl; 
-        cout << "3. Byta värden på ett heltal och ett flyttal." << endl; 
-        cout << "4. Beräkna totala längden samt medellängden på två strängar." << endl; 
-        cout << "5. Avsluta programmet." << endl;
-        
-        cout << "Val: " ;  
-        cin >> choice;
-        cin.ignore(1000, '\n');
-
-
-        switch (choice) 
+ switch (choice) 
         {
             case 1: 
                 factorial();
@@ -106,6 +89,25 @@ void main_menu()
     }
 }
 
+void main_menu()
+{  
+    int choice{0}; 
+    cout << "Välkommen till huvudmenyn!" << endl; 
+    while(true) 
+    {  
+
+
+        cout << "1. Beräkna N-fakultet." << endl; 
+        cout << "2. Multiplicera en sträng." << endl; 
+        cout << "3. Byta värden på ett heltal och ett flyttal." << endl; 
+        cout << "4. Beräkna totala längden samt medellängden på två strängar." << endl; 
+        cout << "5. Avsluta programmet." << endl;
+        cout << "Val: " ;  
+        cin >> choice;
+        cin.ignore(1000, '\n'); 
+        menu_choices(choice);
+
+} 
 } 
 
 int main()
