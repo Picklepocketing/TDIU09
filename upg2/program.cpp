@@ -1,4 +1,4 @@
-// hugko281: Samarbetat med karno058, Karl Nord, samma program
+// karno058: Samarbetat med hugko281, Hugo Kollegger, samma program
 #include <iostream> 
 #include <string>
 #include <cmath>
@@ -53,7 +53,7 @@ void totally_mean_length(string const& text_1, string const& text_2, int & total
     return;
 } 
 
-void menu_choices(int const& choice) 
+void menu_choices(int const& choice, bool & running) 
 { 
       int a {};
         float b {};
@@ -82,8 +82,9 @@ void menu_choices(int const& choice)
                 cout << "Medellängd: " << fixed << setprecision(1) << mean_length << endl;
                 break;
             case 5: 
-                cout << "Ha en bra dag!" << endl;
-                return; 
+                cout << "Ha en bra dag!" << endl; 
+                running = false;
+                break; 
             default:
                 cout << "Fel val!" << endl;
     }
@@ -91,9 +92,10 @@ void menu_choices(int const& choice)
 
 void main_menu()
 {  
-    int choice{0}; 
+    int choice{0};  
+    bool running{true};
     cout << "Välkommen till huvudmenyn!" << endl; 
-    while(true) 
+    while(running) 
     {  
 
 
@@ -105,9 +107,10 @@ void main_menu()
         cout << "Val: " ;  
         cin >> choice;
         cin.ignore(1000, '\n'); 
-        menu_choices(choice);
+        menu_choices(choice,running);
 
 } 
+
 } 
 
 int main()
