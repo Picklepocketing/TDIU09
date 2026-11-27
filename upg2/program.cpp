@@ -22,10 +22,11 @@ void factorial()
 
     cout << "Mata in ett heltal: ";
     cin >> n;
-    cout << "Fakulteten av " << n << " är " << compute_factorial(n) << '\n';
+    cout << "Fakulteten av " << n << " är " << compute_factorial(n) << endl;
 }
 
-string compute_multyply_string(string const & text, int const multiplier)
+string compute_multyply_string(string const & text, 
+                               int const multiplier)
 {
     string new_text {};
 
@@ -44,15 +45,16 @@ void multiply_string()
 
     cout << "Mata in en text och ett heltal: ";
     cin >> text >> multiplier;
-    cout << "Den multiplicerade texten är " << compute_multyply_string(text, multiplier) << '\n';
+    cout << "Den multiplicerade texten är " << compute_multyply_string(text, multiplier) << endl;
 }
 
-void swap_int_float(int & a, double & b)
+void swap_int_float(int & a, 
+                    double & b)
 {
     int old_a {a};
 
     a = static_cast<int>(ceil(b));
-    b = old_a;
+    b = static_cast<float>(old_a);
 }
 
 void ints_a_floater()
@@ -65,12 +67,14 @@ void ints_a_floater()
 
     swap_int_float(a, b);
 
-    cout << "Heltalets värde är nu " << a << '\n';
-    cout << "Flyttalets värde är nu " << fixed << setprecision(1) << b << '\n';
+    cout << "Heltalets värde är nu " << a << endl;
+    cout << "Flyttalets värde är nu " << fixed << setprecision(1) << b << endl;
 }
 
-void totally_mean_length(string const & text_1, string const & text_2, 
-        int & total_length, double & mean_length)
+void totally_mean_length(string const & text_1, 
+                         string const & text_2, 
+                         int & total_length, 
+                         double & mean_length)
 {
     total_length = static_cast<int>(text_1.length() + text_2.length());
     mean_length = static_cast<double>(total_length) / 2;
@@ -88,8 +92,8 @@ void out_totally_mean_length()
 
     totally_mean_length(text_1, text_2, total_length, mean_length);
 
-    cout << "Totallängd: " << total_length << '\n';
-    cout << "Medellängd: " << fixed << setprecision(1) << mean_length << '\n';
+    cout << "Totallängd: " << total_length << endl;
+    cout << "Medellängd: " << fixed << setprecision(1) << mean_length << endl;
 } 
 
 void menu_choices(int const choice) 
@@ -111,7 +115,7 @@ void menu_choices(int const choice)
         case 5:
             break;
         default:
-            cout << "Fel val!" << '\n';
+            cout << "Fel val!" << endl;
     }
 }
 
@@ -119,22 +123,22 @@ void main_menu()
 {  
     int choice {};
 
-    cout << "Välkommen till huvudmenyn!" << '\n';
+    cout << "Välkommen till huvudmenyn!" << endl;
 
     while (choice != 5) 
     {  
-        cout << "1. Beräkna N-fakultet." << '\n';
-        cout << "2. Multiplicera en sträng." << '\n';
-        cout << "3. Byta värden på ett heltal och ett flyttal." << '\n';
-        cout << "4. Beräkna totala längden samt medellängden på två strängar." << '\n';
-        cout << "5. Avsluta programmet." << '\n';
+        cout << "1. Beräkna N-fakultet." << endl;
+        cout << "2. Multiplicera en sträng." << endl;
+        cout << "3. Byta värden på ett heltal och ett flyttal." << endl;
+        cout << "4. Beräkna totala längden samt medellängden på två strängar." << endl;
+        cout << "5. Avsluta programmet." << endl;
         cout << "Val: ";
         cin >> choice;
         cin.ignore(1000, '\n');
 
         menu_choices(choice);
     } 
-    cout << "Ha en bra dag!" << '\n';
+    cout << "Ha en bra dag!" << endl;
 } 
 
 int main()
