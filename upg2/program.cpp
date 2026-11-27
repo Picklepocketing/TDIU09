@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int compute_factorial(int n) 
+int compute_factorial(int const n) 
 {
     if (n == 0) 
     {
@@ -25,7 +25,7 @@ void factorial()
     cout << "Fakulteten av " << n << " är " << compute_factorial(n) << '\n';
 }
 
-string compute_multyply_string(string const & text, int multiplier)
+string compute_multyply_string(string const & text, int const multiplier)
 {
     string new_text {};
 
@@ -92,7 +92,7 @@ void out_totally_mean_length()
     cout << "Medellängd: " << fixed << setprecision(1) << mean_length << '\n';
 } 
 
-void menu_choices(int choice) 
+void menu_choices(int const choice) 
 { 
     switch (choice) 
     {
